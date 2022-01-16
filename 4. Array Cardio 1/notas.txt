@@ -1,0 +1,32 @@
+1. filter en una linea
+
+const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
+
+de esta forma devuelve un valor booleano sin especificar un return.
+
+3. sort en una linea
+
+const ordered = invertors.sort((a, b) => a.year > b.year ? 1 : -1);
+
+4. sin usar reduce, se puede lograr con bucle for
+
+let totalYears = 0;
+for (let i = 0; i < inventors.length; i++) {
+        totalYears += (inventors[i].passed - inventors[i].year);
+};
+
+6. seleccionar los elementos del dom en una sola linea
+
+const links = document.querySelector('.mw-category a');
+
+...
+
+const links = category.querySelectorAll('a'); NO FUNCIONA
+
+querySelector devuelve un NodeList la cual no posee la funcion map,
+para que funcione hay que convertirlo en un array comun usando Array.from
+o spread operator [...category.querySelectorAll('a')];
+
+7. datos sin desestructurar
+const aParts = lastOne.split(', ');
+console.log(aParts); ['nombre', 'apellido']
