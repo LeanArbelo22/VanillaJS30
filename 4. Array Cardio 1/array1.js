@@ -1,3 +1,4 @@
+console.log("\n %c Arrays con los que se va a trabajar 👇 \n ", "color: pink");
 const inventors = [
     { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
     { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -20,6 +21,9 @@ const inventors = [
     'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
   ];
+
+  console.table(inventors);
+  console.table(people);
 
   // Array.prototype.filter()
     console.info("\n %c 1. Filtra la lista de inventores con aquellos que nacieron entre el 1500 y antes del 1600 \n ", "color: green");

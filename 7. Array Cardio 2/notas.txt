@@ -1,0 +1,11 @@
+1. solucion en una linea
+const isAdult = people.some(person => (new Date()).getFullYear() - person.year >= 19);
+3. solucion en una linea
+const comment = comments.find(comment => comment.id === 823423);
+4. solucion alternativa (usada popularmente en redux)
+crea un nuevo array con los comentarios actualizados
+const newComments = [
+    ...comments.splice(0, index),
+    ...comments.splice(index + 1)
+]
+desde el indice 0, borra index, luego agrega lo que hay despues de index

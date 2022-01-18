@@ -3,9 +3,14 @@ body{
     padding: 0;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* https://uigradients.com/#Summer */
+    background: #22c1c3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fdbb2d, #22c1c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .all{
-    margin: 0.4rem;
+    margin: 0.6rem;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -13,7 +18,7 @@ body{
     column-gap: 0.4rem;
 }
 .day{
-    border: 0.3rem black solid;
+    border: 0.2rem black solid;
     height: 5.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -22,8 +27,8 @@ body{
 }
     .day:hover{
         transform: scale(1.05);
-        border-color: rgba(3, 182, 56, 0.452);
-        box-shadow: 0 0 2rem rgb(82, 173, 158);
+        border-color: rgba(255, 255, 255, 0.452);
+        box-shadow: 0 0 1.5rem rgb(255, 255, 255);
     }
 a{  
     width: 100%;
@@ -34,7 +39,7 @@ a{
     font-size: 2rem;
 }
     a:hover{
-        color: rgb(42, 201, 95)
+        color: rgb(255, 255, 255)
     }
 p{
     text-transform: uppercase;

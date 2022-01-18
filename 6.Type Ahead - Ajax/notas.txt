@@ -1,0 +1,13 @@
+en promise data representa un array de objetos que deberia igualarse al array vacio cities pero:
+1. cities es una constante, por lo que se debe usar push, o cambiar const por let y hacer cities = data (no recomendado),
+2. al pushear data dentro de cities se obtendra un array dentro de otro array '[cities[data{obj},{obj}]]', para
+evitar esto se puede usar el spread operator y conseguir que el array cities obtenga todos los objetos
+del array data.
+
+en findMatches podria retornar:
+place.city.match(/palabraBuscada/i) pero esto busca exactamente lo que se especifica
+y no podria pasarse la variable wordToMatch. La sintaxis que utiliza ej: (//i) es una expresion regular.
+Para poder hacer que la variable wordToMatch funcione como expresion regular primero hay que convertirla
+en un objeto RegExp.
+temas a repasar: - expresiones regulares en JS (patrones que se utilizan para hacer coincidir combinaciones de caracteres en cadenas)
+- RegExp (se utiliza para hacer coincidir texto con un patrón)

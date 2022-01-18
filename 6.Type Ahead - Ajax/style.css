@@ -1,0 +1,73 @@
+html {
+    box-sizing: border-box; 
+    /* border-box si se define un elemento con un ancho de 100 pixeles incluíran cualquier borde o relleno que se añadan, 
+    y la caja de contenido se encogerá para absorber ese ancho extra */
+    background: #ffc600;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+input {
+    width: 100%;
+    padding: 20px;
+}
+.search-form {
+    max-width: 400px;
+    margin: 50px auto;
+}
+input.search {
+    margin: 0;
+    width: 120%;
+    text-align: center;
+    font-size: 40px;
+    /* borde y contorno */
+    border: 10px solid #F7F7F7;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), 
+    inset 0 0 2px rgba(0, 0, 0, 0.19);
+    outline: 0;
+    /* outline = contorno != border
+    Los contornos no ocupan espacio, son dibujados por encima del elemento.
+    No suma en el tamaño de la caja y no hay movimiento o desplazamiento de los elementos como con border.
+    Si el elemento se distribuye en varias líneas, no forma un rectágulo para encerrar a todo el elemento.
+    */
+    position: relative;
+    left: -10%;
+    top: 10px;
+    z-index: 2;
+}
+.suggestions {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.suggestions li {
+    margin: 0;
+    padding: 20px;
+    background: white;
+    transition: background 0.2s; /* ?? */
+    list-style: none;
+    text-transform: capitalize;
+    border-bottom: 1px solid #D8D8D8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    display: flex;
+    justify-content: space-between;
+}
+.suggestions li:nth-child(even) {
+    transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+    background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%); /* gradiente como sombra */
+}
+.suggestions li:nth-child(odd) {
+    transform: perspective(100px) rotateX(-3deg) translateY(3px);
+    background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+}
+/* con js... */
+span.population {
+    font-size: 15px;
+} 
+.hl {
+    background: #ffc600;
+}
