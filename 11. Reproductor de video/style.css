@@ -1,0 +1,147 @@
+html {
+    box-sizing: border-box; /* nada puede exceder el tamaño de la pantalla */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* para que funcione el centrado vertical necesita especificarse el height 👇 */
+    min-height: 100vh;
+    background: #7A419B; /* alternativa por si linear-gradient 👇 no es compatible con el navegador */
+    background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
+    background-size: cover; /* escala la imagen al mayor tamaño posible sin estirarla, ?? */
+}
+.player {
+    max-width: 750px;
+    border: 5px solid rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.637);
+    position: relative; /* ?? */
+    font-size: 0; /* reduce margen en border-bottom */
+    overflow: hidden; /* si se excede de tamaño el contenido es recortado y no se muestran barras de posición. */
+}
+
+/* Estilos aplicados en modo pantalla completa */
+.player:fullscreen {    /* general */
+    max-width: none;
+    width: 100%;
+}
+.player:-webkit-full-screen {   /* algunos navegadores, ?? */
+   max-width: none;
+   width: 100%;
+} /* y :-moz-full-screen */
+.player__video {    /* ?? */
+    width: 100%;
+}
+/* Controles personalizados */
+.player__controls { /* todos los controles */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute; /* se integran los controles al reproductor */
+    bottom: 0;
+    background: rgba(0,0,0,0.1);
+    /* transicion que hace desaparecer los controles (funciona con el hover siguiente) */
+    transform: translateY(100%) translateY(-5px);
+    transition: all .3s;
+}
+.player:hover .player__controls { /* cuando el cursor esta sobre el reproductor */
+    transform: translateY(0); /* vuelven a aparecer los controles */
+}
+.player:hover .progress {
+    height: 15px;
+}
+.player__controls > * {
+    flex: 1; /* cada elemento ocupa el tamaño disponible */
+}
+.player__button { /* play */
+    color: white;
+    background: none;
+    padding: 0;
+    border: 0;
+    outline: 0; /* ?? */
+    line-height: 1; /* ?? */
+    text-align: center; /* ?? */
+    cursor: pointer; /* mano apuntando */
+    max-width: 50px;
+}
+.player__button:focus { /* cuando se hace click a play*/
+    border-color: #ffc600; /* sin px solid no funciona, ?? */
+}
+.player__slider { /* range de volumen y velocidad */
+    width: 10px;
+    height: 30px;
+    
+}
+/* Barra de progreso, funcionalidad con JS */
+.progress {
+    position: relative;
+    height: 5px;
+    transition: height 0.3s;
+    background: rgba(0, 0, 0, 0.281);
+    cursor: grab;
+    flex: 10; /* flex item, ?? */
+    flex-basis: 100%; /* flex item, tamaño inicial de un elemento flex */
+    display: flex; /* flex container, ?? */
+}
+.progress__filled { /* funcionalidad con JS */
+    flex: 0;
+    flex-basis: 0%; /* funciona como width */
+    width: 50%;
+    background: #f8c200c9;
+}
+/* Estilos de inputs type range */
+input[type=range] {
+    -webkit-appearance: none; /* quita apariencia de controles nativos, algunos navegadores */
+    background: transparent;
+    width: 100%; /* ?? */
+    margin: 0 5px; /* ?? */
+}
+input[type=range]:focus {
+    outline: none; /* sin contornos, ?? */
+}
+/* chrome, safari, ios, opera */
+input[type=range]::-webkit-slider-runnable-track { /* representa el trayecto de un input "range",
+    en firefox ::-moz-range-track */
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0); /* casi imperceptible, ?? */
+    background: rgba(255, 255, 255, 0.623);
+    border-radius: 3px;
+    border: 0.2px solid rgba(1, 1, 1, 0.041);
+}
+/* ☝ para firefox 👇 */
+input[type=range]::-moz-range-track { 
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0); /* casi imperceptible, ?? */
+    background: rgba(255, 255, 255, 0.623);
+    border-radius: 3px;
+    border: 0.2px solid rgba(1, 1, 1, 0.041);
+}
+/* chrome, safari, ios, opera */
+input[type=range]::-webkit-slider-thumb { /* selector que el usuario puede mover a lo largo de la ranura de un 
+    input "range" para modificar su valor numérico */
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background: #ffc800d3;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.5px;
+    box-shadow:0 0 2px rgba(0,0,0,0.2);
+}
+/* ☝ para firefox 👇 */
+input[type=range]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background: #ffc600;
+    cursor: pointer;
+    box-shadow:0 0 2px rgba(0,0,0,0.2);
+}

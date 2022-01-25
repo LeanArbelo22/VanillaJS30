@@ -1,0 +1,5 @@
+alternativa (dificil de leer)
+function togglePlay(){
+    const method = video.paused ? 'play' : 'pause';
+    video[method]();
+}
